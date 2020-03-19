@@ -13,13 +13,16 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
+        val recyclerView = findViewById<RecyclerView>(R.id.main_recycler)
         val viewModel = ViewModelProvider(this)[CellsViewModel::class.java]
         val adapter = CellsAdapter(viewModel)
         findViewById<View>(R.id.main_button).setOnClickListener {
-            viewModel.create()
-            adapter.notifyDataSetChanged()
+            val updaters = viewModel.create()
+            for (updater in updaters) {
+                updater.update(adapter)
+            }
+            recyclerView.scrollToPosition(0)
         }
-        val recyclerView = findViewById<RecyclerView>(R.id.main_recycler)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter
     }

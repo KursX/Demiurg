@@ -17,8 +17,9 @@ class CellsViewModel : ViewModel() {
 
     fun get(position: Int) = cells[position]
 
-    fun create() {
+    fun create(): List<Updater> {
         cells.add(0, deadOrLivingFactory.createCell())
+        val updaters = arrayListOf(Updater(Updater.Type.Insert, 0))
         if (cells.size > 2) {
             var deathLine = true
             var liveLine = true
@@ -35,13 +36,16 @@ class CellsViewModel : ViewModel() {
                     cells.getOrNull(3)?.let { cell ->
                         if (cell.name == Name.Life) {
                             cells.removeAt(3)
+                            updaters.add(Updater(Updater.Type.Remove, 3))
                         }
                     }
                 }
                 liveLine -> {
                     cells.add(0, lifeFactory.createCell())
+                    updaters.add(Updater(Updater.Type.Insert, 0))
                 }
             }
         }
+        return updaters
     }
 }
