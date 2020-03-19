@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Dumiurg</string>
+    <string name="dead_title">Мертвая</string>
+    <string name="living_title">Живая</string>
+    <string name="life_title">Жизнь</string>
+    <string name="dead_description">или прикидывается</string>
+    <string name="living_description">и шевелится!</string>
+    <string name="life_description">Ку-ку!</string>
+    <string name="create">Сотворить</string>
+    <string name="title">Клеточное наполнение</string>
+</resources>

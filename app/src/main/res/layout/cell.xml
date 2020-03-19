@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:cardUseCompatPadding="true"
+    tools:contentPadding="16dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:id="@+id/cell_emoji_layout"
+            android:layout_width="40dp"
+            android:layout_centerVertical="true"
+            android:layout_height="40dp">
+
+            <ImageView
+                android:id="@+id/cell_emoji_background"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:id="@+id/cell_emoji"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/cell_title"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:layout_toRightOf="@+id/cell_emoji_layout"
+            android:layout_toEndOf="@+id/cell_emoji_layout"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:textSize="20sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/cell_description"
+            android:textColor="@android:color/black"
+            android:layout_toRightOf="@+id/cell_emoji_layout"
+            android:layout_toEndOf="@+id/cell_emoji_layout"
+            android:layout_marginLeft="16dp"
+            android:textSize="14sp"
+            android:layout_marginRight="16dp"
+            android:layout_below="@+id/cell_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
